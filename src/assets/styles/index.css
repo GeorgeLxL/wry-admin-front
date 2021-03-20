@@ -1,0 +1,46 @@
+
+.h-300 {
+    height: 300px;
+}
+
+.h-50-px {
+    height: 50px;
+}
+
+.text-65-px {
+    font-size: 65px;
+}
+
+.text-60-px {
+    font-size: 60px;
+}
+
+.text-25-px {
+    font-size: 25px;
+}
+
+.input-w-600 {
+    width: 600px;
+}
+
+input::placeholder, input:-ms-input-placeholder, input::-ms-input-placeholder {
+    color: #959595;
+    opacity: 1; /* Firefox */
+}
+
+.m-a {
+    margin: auto;
+}
+
+.m-a-3 {
+    margin: auto auto 0.75rem auto;
+}
+
+.py-50-px {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.rounded-10-px {
+    border-radius: 10px;
+}

@@ -1,0 +1,32 @@
+stages:
+    - Staging
+#    - Production
+ 
+Deploy_Staging:
+   stage: Staging
+   script:
+        - ssh -p 52448 wryadminstg@8.210.28.104 /bin/bash -s << EOT
+        - cd /home/wryadminstg/wry-admin-front
+        - git status
+        - git checkout -- .eslintcache
+        - git checkout master
+        - git pull
+        - git checkout $CI_COMMIT_TAG
+        - git status
+        - npm install
+        - npm run build
+        - pm2 del wry-front-admin
+        - pm2 start npm --name wry-front-admin -- start
+        - pm2 save
+        - pm2 status
+   tags:
+        - wry-admin-front
+   only:
+        - tags
+        - master
+   environment:
+        name: wry-admin-staging
+        url: https://wry-admin-stg.ipfssys.info
+   when: manual
+
+
